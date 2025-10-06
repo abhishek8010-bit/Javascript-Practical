@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        .container{
+            text-align: center;
+            border: 2px solid black;
+            width: 55%;
+            height: 400px;
+        }
+        .items{
+            border: 1px solid black;
+            margin: 10px 10px 10px 10px;
+            
+        }
+        .btn{
+            padding: 5px;
+            margin-left: 470px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+        .btn1{
+            padding: 5px;
+            margin-left: 10px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛒Shopping Cart</h1>
+        <div class="cart">
+            <h3>Cart Items: <span id="count">0</span></h3>
+        </div>
+        <div class="items">
+            <h3>🍎Apple - 20<button class="btn" >Add to Cart</button><button class="btn1">Remove</button></h3>
+        </div>
+        <div class="items">
+            <h3>🍇Grapes - 10<button class="btn" >Add to Cart</button><button class="btn1">Remove</button></h3>
+        </div>
+        <div class="items">
+            <h3>🍌Banana - 30<button class="btn">Add to Cart</button><button class="btn1">Remove</button></h3>
+        </div>
+    </div>
+
+
+    <script>
+        
+      document.addEventListener("DOMContentLoaded", function () {
+      let count = 0;
+      const Count = document.getElementById("count");
+
+      const addButtons = document.querySelectorAll(".btn");
+      const removeButtons = document.querySelectorAll(".btn1");
+
+      addButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          count++;
+          Count.innerText = count;
+        });
+      });
+
+      removeButtons.forEach(button => {
+        button.addEventListener("click", () => {
+          if (count > 0) {
+            count--;
+            Count.innerText = count;
+          }
+        });
+      });
+    });
+            
+
+        
+        
+    </script>
+    
+</body>
+</html>

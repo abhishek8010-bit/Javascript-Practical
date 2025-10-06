@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tabs-container{
+           display: inline-block;     
+           width: 400px;
+        }
+
+    .tabs{
+        display: flex;
+        justify-content: space-around;
+    }
+    .tab{
+        padding: 10px;
+        cursor: pointer;
+        background-color: aqua;
+        border: 1px solid;
+    }
+    .tab.active{
+        background-color: red;
+    }
+    .tab-content{
+        border: 1px solid;
+        padding: 20px;
+        background-color: wheat;
+        margin-top: 10px;
+        display: none;
+    }
+    .tab-content.active{
+        display: block;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active" onclick="tabShow(0)">tab 1</div>
+            <div class="tab" onclick="tabShow(1)">tab 2</div>
+            <div class="tab" onclick="tabShow(2)">tab 3</div>
+        </div>
+
+        <div class="tab-content active">this is tab 1</div>
+        <div class="tab-content">this is tab 2</div>
+        <div class="tab-content">this is tab 3</div>
+    </div>
+
+
+
+    <script>
+        function tabShow(index){
+            const tabElement = document.querySelectorAll(".tab");
+            const tabContentElement = document.querySelectorAll(".tab-content");
+
+            tabElement.forEach(tab => tab.classList.remove("active"));
+            tabContentElement.forEach(tabContent => tabContent.classList.remove("active"));
+
+            tabElement[index].classList.add("active");
+            tabContentElement[index].classList.add("active");
+        }
+    </script>
+</body>
+</html>

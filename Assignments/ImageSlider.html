@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     img{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <img src="/Images/1.jpg" alt="image" id="imgCarousel">
+        <br>
+        <button onclick="previousImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+        const images = ["/Images/1.jpg", "/Images/2.jpg" , "/Images/3.jpg"];
+        let currentIndex = 0;
+
+
+        function showImage(index){
+            const img = document.querySelector("#imgCarousel");
+            img.src = images[index];
+        }
+
+        function nextImage(){
+            currentIndex++;
+            if(currentIndex >= images.length){
+                currentIndex = 0;
+            }
+            showImage(currentIndex);
+        }
+
+        function previousImage(){
+            currentIndex--;
+            if(currentIndex < 0){
+                currentIndex = images.length - 1; 
+            }
+            showImage(currentIndex);
+        }
+
+
+        function startAuto(){
+            let interval = setInterval(nextImage,3000);
+        }
+        window.onload = function(){
+            showImage(currentIndex);
+            startAuto();
+        }
+    </script>
+    
+</body>
+</html>

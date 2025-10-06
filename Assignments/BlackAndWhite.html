@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark {
+            background-color: black;
+            color: white;
+        }
+
+        .light {
+            background-color: white;
+            color: black;
+        }
+
+        #btn {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="mode">Change Mode</button>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facere.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, facere.</p>
+
+
+    <button onmouseover="console.log('inside button')">Click Me!</button>
+
+    <p id="btn" onmouseover="console.log('inside div')"></p>
+
+    <p>❤</p>
+
+    <script>
+        let modeBtn = document.querySelector("#mode");
+        let body = document.querySelector("body");
+
+        let cuurMode = "light";
+
+        modeBtn.addEventListener("click", () => {
+            if (cuurMode === "light") {
+                cuurMode = "dark";
+                body.classList.add("dark");
+                body.classList.remove("light");
+            } else {
+                cuurMode = "light";
+                body.classList.add("light");
+                body.classList.remove("dark");
+            }
+
+            console.log(cuurMode);
+        })
+    </script>
+
+
+</body>
+
+</html>

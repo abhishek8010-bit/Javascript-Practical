@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Api Example:</h1>
+    <button id="btn">Click Me</button>
+    <p id="para"></p>
+
+    <script>
+        let URL = `https://dogapi.dog/api/v2/breeds`;
+
+        let para = document.querySelector("#para");
+        let btn = document.querySelector("#btn");
+
+
+        const getFact = async () =>{
+            let response = await fetch(URL);
+            let data = await response.json();
+            console.log(data);
+            console.log(data.data[6].attributes.name);
+
+            
+            let facts = data.data[6].attributes.name;
+            let para1 = document.querySelector("#para").textContent = facts;
+            
+
+            
+
+            // let imgurl = data[0].url;
+            // let img = document.createElement("img");
+
+            // img.src = imgurl;
+            // img.alt = "Random";
+            // img.width = 500;
+
+            // para.appendChild(img);
+
+        }
+        
+        // getFact();
+         btn.addEventListener("click", getFact)
+
+    </script>
+    
+</body>
+</html>
